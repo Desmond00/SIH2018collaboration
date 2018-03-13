@@ -1,0 +1,23 @@
+Sub mapIdName()
+Dim id As Long
+
+
+lastrowSheet2 = Sheet2.Cells(Rows.Count, 1).End(xlUp).Row
+lastrowSheet3 = Sheet3.Cells(Rows.Count, 1).End(xlUp).Row
+For i = 2 To lastrowSheet2
+    id = Sheet2.Cells(i, 4)
+    For j = 2 To lastrowSheet3
+        If (Sheet3.Cells(j, 1) = id) Then
+            Worksheets("Sheet2").Cells(i, 5) = Sheet3.Cells(j, 2)
+            
+            Exit For
+        End If
+    Next j
+Next i
+        
+Sheet2.Columns.AutoFit
+Range("A1").Select
+
+End Sub
+
+
