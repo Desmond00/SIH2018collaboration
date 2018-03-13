@@ -1,0 +1,46 @@
+Sub modifyDataCategory()
+Dim lastrow As Long, erow As Long, key As String
+
+
+lastrowSheet1 = Sheet1.Cells(Rows.Count, 1).End(xlUp).Row
+lastrowSheet2 = Sheet2.Cells(Rows.Count, 1).End(xlUp).Row
+erow = Sheet2.Cells(Rows.Count, 1).End(xlUp).Offset(1, 0).Row
+For i = 2 To lastrowSheet1
+    key = Sheet1.Cells(i, 2) + Sheet1.Cells(i, 4) + CStr(Sheet1.Cells(i, 6) + Sheet1.Cells(i,7)
+    For j = 2 To lastrowSheet2
+        If (StrComp(key, Sheet2.Cells(j, 2), vbTextCompare) = 0) Then
+            erow = Sheet2.Cells(Rows.Count, 1).End(xlUp).Offset(1, 0).Row
+            Worksheets("Sheet2").Cells(j, 3) = Sheet1.Cells(i, 2)
+            Worksheets("Sheet2").Cells(j, 4) = Sheet1.Cells(i, 3)
+            Worksheets("Sheet2").Cells(j, 5) = Sheet1.Cells(i, 4)
+            Worksheets("Sheet2").Cells(j, 6) = Sheet1.Cells(i, 6)
+            Worksheets("Sheet2").Cells(j, 7) = Sheet1.Cells(i, 7)
+            Worksheets("Sheet2").Cells(j, 8) = Sheet1.Cells(i, 8)
+            Category = Sheet1.Cells(i, 5)
+            Rank = Sheet1.Cells(i, 9)
+            Select Case Category
+                Case "GE"
+                    Worksheets("Sheet2").Cells(j, 9) = Rank
+                Case "SC"
+                    Worksheets("Sheet2").Cells(j, 10) = Rank
+                Case "ST"
+                    Worksheets("Sheet2").Cells(j, 11) = Rank
+                Case "OBC"
+                    Worksheets("Sheet2").Cells(j, 12) = Rank
+            End Select
+            'If Category = "GE" Then
+                'Worksheets("Sheet2").Cells(j, 9) = Rank
+            'ElseIf Category = "SC" Then
+                'Worksheets("Sheet2").Cells(j, 10) = Rank
+            'ElseIf Category =
+        End If
+    Next j
+    'Worksheets("Sheet2").Cells(erow, 5) = Sheet2.Cells(i, 2)
+
+    'erow = erow + 1
+Next i
+
+Sheet2.Columns.AutoFit
+Range("A1").Select
+
+End Sub
