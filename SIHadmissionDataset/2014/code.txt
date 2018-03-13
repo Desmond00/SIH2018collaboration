@@ -1,5 +1,5 @@
 Sub modifyDataCategory()
-Dim lastrow As Long, erow As Long, key As String
+Dim  erow As Long, key As String
 
 
 lastrowSheet1 = Sheet1.Cells(Rows.Count, 1).End(xlUp).Row
