@@ -14,9 +14,9 @@
 		<br /> <br /> <br />
 		<div align="center">
 			<form class="needs-validation" novalidate>
-				<label for="username">User Name</label>
+				<label for="username">Email ID</label>
 				<input	type="text" class="form-control" id="username" required>						
-				<div class="invalid-feedback">Enter your username</div>
+				<div class="invalid-feedback">Enter your Email ID</div>
 				<br>
 				<label for="password">Password</label>
 				<input	type="text" class="form-control" id="password" required>						

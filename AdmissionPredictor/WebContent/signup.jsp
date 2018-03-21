@@ -19,7 +19,6 @@
 	<form method="post" action="SignupServlet">
 	
 		<div><input class="form-control" placeholder="Name" name="name" type="text"/><br/></div>
-		<div><input class="form-control" placeholder="UserID" name="userid" type="text"/><br/></div>
 		<div><input class="form-control"placeholder="Email"  name="email" type="text"/><br/></div>
 		<div><input class="form-control" placeholder="Contact" name="phone" type="text"/><br/></div>
 		<div><input class="form-control" placeholder="Password"  name="passwd" type="password"/><br/></div>
