@@ -2,7 +2,7 @@
     <wb-module deploy-name="TPC-Management-System-master">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="TPC-Management-System-master"/>
         <property name="java-output-path" value="/TPC-Management-System-master/build/classes"/>
+        <property name="context-root" value="AdmissionPredictor"/>
     </wb-module>
 </project-modules>

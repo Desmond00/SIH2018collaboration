@@ -13,7 +13,11 @@
 	<br/><br/><br/><br/>
 	<h3>Vision</h3>
 
-	<br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/>	<br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><b	<br/><br/><br/><br/><br/><br/>
+	
 	</div>
+	<%@include file="_includes/footer.jsp" %>
+	
 </body>
 </html>
