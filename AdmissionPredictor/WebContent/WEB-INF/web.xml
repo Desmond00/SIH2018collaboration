@@ -60,4 +60,44 @@
     <servlet-name>StudentServlet</servlet-name>
     <url-pattern>/StudentServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>admissionHome</servlet-name>
+    <jsp-file>/admissionHome.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admissionHome</servlet-name>
+    <url-pattern>/admissionHome</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>instituteList</servlet-name>
+    <jsp-file>/AJAXinstituteList.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>instituteList</servlet-name>
+    <url-pattern>/institutes</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RankList</servlet-name>
+    <servlet-class>admission.RankList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RankList</servlet-name>
+    <url-pattern>/RankList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>admissionStyle2</servlet-name>
+    <servlet-class>admission.admissionStyle2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admissionStyle2</servlet-name>
+    <url-pattern>/admissionStyle2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>jobStatitics</servlet-name>
+  	<servlet-class>job.jobStatitics</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>jobStatitics</servlet-name>
+  	<url-pattern>/jobStatistics</url-pattern>
+  </servlet-mapping>
 </web-app>

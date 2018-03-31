@@ -13,7 +13,7 @@
  
 	    <div class="collapse navbar-collapse " id="Navbar">
 	        <ul class="navbar-nav mr-auto">
-	          	<li class="nav-item active"><a class="nav-link" href="index.jsp"><i class="fas fa-home"></i> Home</a></li>
+	          	<li class="nav-item "><a class="nav-link" href="index.jsp"><i class="fas fa-home"></i> Home</a></li>
 	          	<li class="nav-item"><a class="nav-link" href="about_us.jsp"><i class="fas fa-info"></i> About Us</a></li>
 	          	<li class="nav-item"><a class="nav-link" href="contact.jsp"><i class="fas fa-question"></i> Contact</a></li>
 	       <% if(session.getAttribute("email") == null){ %>
@@ -22,6 +22,10 @@
 				<li class="nav-item"><a class="nav-link" href="login.jsp"><i class="fas fa-sign-in-alt"></i> Login</a></li>
 			</ul>
 			<% } else{ %>
+			<li class="nav-item"><a class="nav-link" href="admissionHome.jsp"><i class="far fa-lightbulb"></i > Admission Statistics</a></li>
+			<li class="nav-item"><a class="nav-link" href="CollegePredictor.jsp"><i class="fas fa-graduation-cap""></i > College Predictor</a></li>	
+						<li class="nav-item"><a class="nav-link" href="JobStatistics.jsp"><i class="fas fa-caret-right""></i > Job Statistics</a></li>	
+				
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="navbar-item dropdown">

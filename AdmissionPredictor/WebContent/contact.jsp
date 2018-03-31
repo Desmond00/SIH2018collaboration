@@ -9,13 +9,11 @@
 </head>
 <body>
  	<%@include file="_includes/navbar.jsp" %>
-	<div class="tab-content">
-		<div role="tabpanel" class="tab-pane" id="contact">
-		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<div class="Container">
+		
 			Contact details: xxxxx-xxxxx
-		</div>
+		
 	</div>
-	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	<%@include file="_includes/footer.jsp" %>
 </body>
 </html>

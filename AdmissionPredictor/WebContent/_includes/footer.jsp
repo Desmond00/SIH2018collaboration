@@ -1,4 +1,4 @@
-<footer id="footer" classs="footer">
+<footer id="footer" class="footer">
     <div class="container">
         <div class="row">
             <div class="footer-ribbon" style="right: 0">
@@ -16,12 +16,12 @@
                     </a>
                 </div>
                 <div class="col-md-5">
-                    <p>&copy; Copyright 2017 Team HotSpot. All Rights Reserved.</p>
+                    <p>&copy; Copyright 2017 Team HotShot. All Rights Reserved.</p>
                 </div>	
             </div>
         </div>
     </div>
 </footer>
 
-<script src="assets/js/jquery.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>

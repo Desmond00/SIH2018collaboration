@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/C	Login")
+@WebServlet("/CLogin")
 public class CLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	int flag = 0;
@@ -42,7 +42,7 @@ public class CLogin extends HttpServlet {
 			LoginClass lc = new LoginClass();
 			Dao db = new Dao();
 
-			json.put("sucess", false);
+			json.put("success", false);
 			String email = request.getParameter("email");
 
 			if (email.isEmpty())

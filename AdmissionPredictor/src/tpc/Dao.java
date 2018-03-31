@@ -3,6 +3,8 @@ package tpc;
 import java.sql.*;
 import java.util.*;
 
+import jdk.nashorn.internal.runtime.ECMAErrors;
+
 public class Dao {
 	private Connect co;
 	private Connection c;
@@ -16,6 +18,38 @@ public class Dao {
 		System.out.println("co =" + co);
 		pstmt = null;
 	}
+	public boolean checkEmailExists(String email){
+		boolean flag = true;
+		try{
+			pstmt = c.prepareStatement("SELECT * FROM members where email=?");
+			pstmt.setString(1, email);
+			ResultSet rs = pstmt.executeQuery();
+			if (!rs.next()) {
+				flag = false;
+			}
+		}
+		catch( Exception E){
+			System.out.println("Error while checking email");
+		}
+		return flag;
+	}
+	public boolean signup(LoginClass lc) {
+		boolean flag = false;
+		try {
+			if(!checkEmailExists(lc.getEmail())){
+				pstmt = c.prepareStatement("INSERT INTO members(email, password) values  (? ,?)");
+				pstmt.setString(1, lc.getEmail() );
+				pstmt.setString(2, lc.getPassword());
+				System.out.println(lc.getEmail()+lc.getPassword());
+				pstmt.executeQuery();
+				flag = true;
+			}
+		}
+		catch (Exception E){
+			System.out.println("Error while signup "+ E);
+		}
+		return flag;
+	}
 
 	public boolean confirmLogin(LoginClass lc) {
 		boolean flag = false;
@@ -25,7 +59,6 @@ public class Dao {
 			pstmt = c.prepareStatement(str);
 			pstmt.setString(1, lc.getEmail());
 			pstmt.setString(2, lc.getPassword());
-			System.out.println("pstmt");
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
 
@@ -59,37 +92,7 @@ public class Dao {
 		}
 	}
 
-	public void addJob(ForJob recj) {
-		try {
-			String str = "INSERT INTO For_Job values(?, ?, ?, ?, ?)";
-			pstmt = c.prepareStatement(str);
-			pstmt.setString(1, recj.getUserID());
-			pstmt.setFloat(2, recj.getBaseSalary());
-			pstmt.setFloat(3, recj.getMinCPI());
-			pstmt.setString(4, recj.getBranchPrefferd());
-			pstmt.setString(5, recj.getDateOfVisit());
-			pstmt.executeUpdate();
-			System.out.println("Job inserted");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
-	public void addIntern(ForIntern reci) {
-		try {
-			String str = "INSERT INTO For_Intern values(?, ?, ?, ?, ?)";
-			pstmt = c.prepareStatement(str);
-			pstmt.setString(1, reci.getUserID());
-			pstmt.setString(2, reci.getDomain());
-			pstmt.setInt(3, reci.getStipend());
-			pstmt.setString(4, reci.getYearPreffered());
-			pstmt.setString(5, reci.getLinkToWebsite());
-			pstmt.executeUpdate();
-			System.out.println("Intern inserted");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	public void editDetails(Recruiter rec) {
 		try {
@@ -113,45 +116,6 @@ public class Dao {
 		}
 	}
 
-	public ArrayList<ForJob> getAllRecruiter() throws SQLException {
-		Statement stmt = c.createStatement();
-		ResultSet rs = stmt.executeQuery(
-				"select name,email,phone,baseSalary,minCPI,branchPreffered,dateOfVisit from recruiter join forjob on recruiter.userid= forjob.userid");
-		ArrayList<ForJob> rec = new ArrayList<ForJob>();
-		while (rs.next()) {
-			ForJob f = new ForJob();
-			f.setName(rs.getString("name"));
-			f.setEmail(rs.getString("email"));
-			f.setPhone(rs.getString("phone"));
-			f.setBaseSalary(rs.getFloat("baseSalary"));
-			f.setMinCPI(rs.getFloat("minCPI"));
-			f.setBranchPrefferd(rs.getString("branchPreffered"));
-			f.setDateOfVisit(rs.getString("dateOfVisit"));
-			rec.add(f);
-		}
-		return rec;
-	}
-
-	public ArrayList<String> getDetails(String userid) {
-		ArrayList<String> al = new ArrayList<String>();
-		try {
-			String str = "SELECT * FROM signup WHERE RecruiterID = ?";
-			pstmt = c.prepareStatement(str);
-			pstmt.setString(1, "userid");
-			pstmt.executeUpdate();
-			ResultSet rs = pstmt.executeQuery(str);
-
-			al.add(rs.getString("Job_Name"));
-			al.add(rs.getString("RecruiterID"));
-			al.add(rs.getString("EmailID"));
-			al.add(rs.getString("Contact"));
-			al.add(rs.getString("Password"));
-			al.add(rs.getInt("Type") + "");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return al;
-	}
 
 	public Student getAlldata(String username) {
 		Connect co = new Connect();

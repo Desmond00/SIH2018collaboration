@@ -5,7 +5,7 @@ import java.sql.*;
 public class Connect{
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
-	static final String DB_URL = "jdbc:oracle:thin:@25.45.164.165:1521:XE";
+	static final String DB_URL = "jdbc:oracle:thin:@192.168.137.1:1521:XE";
 	// Database credentials
 	static final String USER = "ADMISSION_JOB";
 	static final String PASS = "123456"
